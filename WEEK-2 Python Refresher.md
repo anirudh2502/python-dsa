@@ -1,156 +1,110 @@
-# WEEK-2 Python Refresher  
-  
-## ++Day 1 ++  
-  
-## ++Importing modules++:   
-In python, modules allow to import and use functions, classes and variables from other scripts. The “***import***” statement is the most common way to bring external functionality into the python program.   
-### ++Importing built-in modules++:   
-They can be imported directly using “***import***” keyword without any installation. This allows access to all functions and variables defined in the module.   
-![import math](Attachments/3E76C7C3-768F-4FF4-A899-FF77178573A5.png)  
-### ++Importing external modules++:   
-To use external modules, we need to install them first, which can be done using “**pip**” command in the terminal (***pip install module_name****)*  
-![# Create a simple DataFrame](Attachments/197F34ED-873D-4107-987C-A4508298A171.png)  
-### ++Importing specific functions++:   
-Instead of importing entire module, only the functions and variables needed can be imported using “***from***” keyword.   
-![from math](Attachments/BCC0D4BA-1833-4A63-B1BD-5275338D7B60.png)  
-  
-  
-  
-## ++Standard library versus third-party packages++:   
+## ++Day 2++
 
-| Aspect | Standard library | Third-party packages |
-| ------------ | --------------------------------- | ---------------------------------------- |
-| Installation | Nothing to install  | Install with “pip” |
-| Reliability  | Very stable, rarely breaks  | Can change or stop being maintained |
-| Safety  | Trusted built-in | Must trust outside code  |
-| Features  | Covers the basics | Covers specialised areas (data, web, AI) |
-| Used for | Small scripts, shared libraries,  | Bigger apps, special tasks |
-  
-  
-  
-  
-## ++Creating and importing modules++:   
-A module is a simple python file with ‘**.py**’ extension that can be imported inside another python program. The name of the python file becomes the module name.   
-![' GFG.py '''](Attachments/5214DAAD-4E61-4B83-8F13-4F9B5BB88612.png)  
-![import GFG](Attachments/F1563CCB-DCD3-4821-9A9D-3E900A174903.png)  
-  
-  
-  
-## ++Organising code into packages++:   
-Python packages are a way to organise and structure code by grouping related modules into directories.   
-**++Components++**:   
-- ++Module++: a single python file containing reusable code  
-- ++Package++: directory containing modules special “**__init__.py**” file  
-- ++Sub-packages++: packages nested within other packages  
-### ++Creating and accessing packages++:   
-1. Create a directory (folder that acts as a package)  
-2. Add modules (python files)  
-3. Add ‘***__init__.py***’ to the directory  
-4. Create sub-packages (optional)  
-5. Import modules   
-### ++Uses of packages++:   
-- Organised code structure   
-- Easy code reuse   
-- Simplifies sharing and distribution (pip)  
-- Makes large projects manageable  
-  
-  
-  
-## ++__name__ == “__main__” :++  
-‘***__name__***’ is a special variable set by the interpreter.   
-* If a python file is run directly, Python sets _name__ to “__main__”  
-* If the same file is imported into another file, __name__ is set to module’s name  
-![print("Always executed")](Attachments/C0046331-619A-4C5D-A3A2-96F5455BFC84.png)  
-![import script](Attachments/7E99FCAB-F95E-4BFA-9618-20EBF0CED022.png)  
-  
-  
-  
-## ++Module search paths and import behaviour++:  
-By default, Python only searches the current working directory and standard library paths for modules. If a module stored in another folder is tried to be imported, Python will raise an error.   
-### ++Using ‘sys’ path++:  
-Folder path can be manually added to Python’s search path using ***sys*** module.   
-![add (a,](Attachments/743C1AFC-4453-447A-93E1-037DA1D4A965.png)  
-![# main.py](Attachments/E01CD729-6874-4CAE-9239-D6A3BDFEDB64.png)  
-### ++Import using packages (for larger projects)++:  
-For larger projects, the best way to organise code is by making folders into packages.   
-![project/](Attachments/9FDE8DB9-0574-4708-BA4E-108121715740.png)  
-  
-  
-  
-## ++Installing packages with “pip”++:  
-Python PIP is the package manager used to install, update and manage python packages and libraries. It allows users to easily download packages from Python Package Index (PyPI) directly through the command line.   
-- PIP is commonly used to add external libraries that are not included with Python by default.   
-PIP provides the install command to download and install python packages.   
-![pip install package_name](Attachments/E301F2FA-064C-4137-BCEF-0823823B6DCC.png)  
-### ++Install specific package version++:   
-It can be done using the ‘**==**‘ operator with the package name.   
-![pip install package_namereversion](Attachments/525AEE5D-ED1C-41A1-A52C-81AE58FA92A2.png)  
-### ++Listing installed packages++:   
-The “***pip list***” command is used here.   
-![pip list](Attachments/141A7466-8436-4274-A347-1A1898259F38.png)  
-  
-  
-  
-## ++Virtual environments++:   
-It is an isolated environment that allows to manage dependencies for projects separately. It prevents conflicts between projects and avoids affecting the system-wide python installation.   
-- Tools like “**venv**” or “**virtualenv**” are used to create them.    
-### ++Need for virtual environment++:   
-- Avoid dependency conflicts   
-- Isolate project environments  
-- Simplifies project management   
-- Prevents system interference   
-By default, all python projects share the same location to store packages. This can cause problems if two projects need different versions of the same package. A virtual environment should be used for every python project. It creates a separate space for each project’s packages, so they don’t interfere with each other.   
-![Step 1: Installing virtualenv](Attachments/330F5469-C97A-4BB0-B2A6-1A1790B86972.png)  
-  
-  
-  
-## ++Dependency management++:  
-Managing dependencies ensures smooth development and deployment processes.   
-1. Managing dependencies using ‘**pip**’  
-2. Managing using ‘**virtualenv**’  
-3. Managing using ‘**Pipenv**’  
-### ++Best practices for managing dependencies++:  
-* Use virtual environments   
-* Use ‘requirements.txt’ file  
-* Use dependency management tools  
-- Pipenv  
-- Poetry  
-* Using version ranges carefully   
-* Regularly update dependencies   
-* Use ‘**.gitignore**’ to avoid committing virtual environments  
-* Automating dependency management with CI/CD  
-* Documenting dependency practices  
-  
-  
-  
-## ++Environment variables++:   
-They are key-value pairs present in the system’s environment. Python reads some of the variables at the start to determine how to behave, where to look for modules.   
-Frequently used environment variables:   
-1. **PYTHONPATH**:   
-Adds user-defined directories to Python’s module search path** (sys.path). **  
-++Use case++ -> help find modules that aren’t installed in standard locations  
-![export PYTHONPATH="/home/user/mymodules"](Attachments/E4675734-8C65-485B-A4F3-133CFE4B64C5.png)  
-  
-2. **PYTHONHOME**:   
-Sets the default location for standard libraries.   
-++Use-case++ -> useful when embedding python or using a custom python distribution  
-![Example:](Attachments/21DF8FF8-C94F-420F-872D-A2EE3308FEB2.png)  
-  
-3. **PYTHONINSPECT**:   
-Forces python to enter interactive mode after running a script. It can also make changes to the code and force it to enter the inspect mode on program termination.   
-++Use-case++ -> helpful during debugging or quick testing.   
-  
-4. **PYTHONVERBOSE**:  
-If this variable is set to an empty string, it prints a message every time a module is initialised, showing the location of the file/module form where it has been loaded.  
-++Use-case++ -> helpful for debugging import-related issues  
-  
-### ++Ways to run python code++:   
-* Using interactive mode   
-* Using command line  
-* Using IDE  
-  
-  
-  
-## ++Basic project layout++:   
-Python project follows a clean structure to organise code, manage dependencies, and make packaging seamless.   
-![- my_project/](Attachments/3337D5E6-57CF-4182-85BD-846A56F63CA9.png)  
+## ++Errors and exceptions++:
+
+- Errors are problems in a program that causes the program to stop its execution.
+- Exceptions are raised when some internal events change the program’s normal flow.
+
+### ++Types of errors:++
+
+- Syntax error
+- Indentation error
+- Logical error
+
+| Syntax error                                                   | Exception                                                                   |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Detected during compile time                                   | Detected during runtime                                                     |
+| Caused due to violation of structural/grammatical python rules | Caused when a syntactically correct code encounters an impossible operation |
+| Can’t be caught/handles using ‘try-except’ block               | Can be caught using the ‘try-except’ block                                  |
+| The program terminates immediately; no code runs               | The normal flow changes, but the program can recover if handled             |
+| Eg: missing colons, unmatched parentheses, wrong indentation   | Eg: ZeroDivisionError, ValueError, etc.                                     |
+
+## ++Built-in exceptions++:
+
+Python provides a set of built-in exceptions, each designed to signal a specific type of error and helps to debug more effectively.
+
+| Exception           | Description                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| TypeError           | Raised when an operation/function is applied to an object of inappropriate type.           |
+| ValueError          | Raised when a function receives an argument of the correct type but with an invalid value. |
+| ImportError         | Raised when there is a problem with the import statement.                                  |
+| ModuleNotFoundError | Raised when a module can’t be found.                                                       |
+| FileNotFoundError   | Raised when a file/directory is requested and can’t be found.                              |
+| RuntimeError        | Raised when an error occurs that doesn’t fall under other categories.                      |
+| SyntaxError         | Raised when there is an error in the syntax.                                               |
+| IndentationError    | Raised when the indentation is not right in the code.                                      |
+
+## ++Exception handling++:
+
+It allows a program to handle unexpected errors during execution in a controlled way instead of crashing abruptly. It enables the program to detect errors, manage them properly and continue execution wherever possible.
+
+- It handles runtime errors such as invalid input, file not found, division by zero, etc that occur during execution
+- Helps improve program reliability by ensuring the app doesn’t terminate unexpectedly when an error occurs  
+  ++Syntax++:  
+  ![except SomeException:](Attachments/18C3E9C1-3F9E-4581-8F3A-8E9AA60ED906.png)
+
+* **Try** - runs the risky code that might cause an error
+* **Except** - catches and handles the error if one occurs
+* **Else** - executes only if no exception occurs in try block
+* **Finally** - runs regardless of what happens  
+  ![res = 100 / n](Attachments/18364FA0-A8F8-4D26-BB5A-961851550F00.png)
+
+## ++Raising exceptions++:
+
+The “**raise**” keyword raises an exception and immediately stops the normal execution of the program. The control is then transferred to the nearest matching except block, otherwise the program terminates.  
+++Syntax++:  
+![raise Exception("user text")](Attachments/D9D9C16B-A33E-4EC1-957F-26BCCB647F55.png)  
+![a % 2 != 0:](Attachments/A23377EE-F244-43E3-9CF2-1B2E3D3CA876.png)  
+++Advantages++:
+
+- Helps in stopping execution when an invalid condition occurs
+- Allows custom error messages for better debugging
+- Useful for input validation
+- Enables manual raising of exceptions when needed
+
+## ++Exception chaining++:
+
+To chain exceptions, use the “**raise-from**” statement instead of just “raise” statement. This gives info about both the errors.  
+![def example():](Attachments/6E19CD18-73F3-42CF-838D-8680D3AEDFF8.png)
+
+## ++Assertions++:
+
+They are debugging tools used to test if certain conditions remain true during program execution. “**Assert**” keyword is used to check.  
+If the condition evaluated by the ‘assert’ statement is true, the code runs without interruption, else ‘_AssertionError_’ is raised immediately and program is terminated.  
+![username = "David"](Attachments/54B5DD06-82E4-4B03-AC64-BCD658BF3135.png)
+
+## ++Defensive programming++:
+
+It is a software development approach that focuses on protecting the integrity of a program by anticipating and handling possible errors and exceptions.  
+There are several techniques you can use to implement defensive programming -
+
+- Use “**try-catch**”
+- Check function arguments
+- Use “**stopifnot**”
+- Use “**assert that**”  
+  **++Objectives of defensive programming++**:
+
+* To prevent errors and exceptions
+* To improve reliability of code
+* To save time and effort in debugging
+* To improve maintainability of code  
+  **++Possible threats++**:
+* Syntax errors
+* Runtime errors
+* Exceptions
+* Data integrity issues  
+  **++Common errors in defensive programming++**:
+
+- Using wrong error-handling function
+- Forgetting to include error-handling code
+- Overusing error-handling functions
+- Not testing the error-handling code  
+  **++Principles of defensive programming++**:
+
+1. Anticipate and handle errors and exceptions
+2. Check function arguments
+3. Use error-handling functions
+4. Test error-handling code
+5. Keep the code simple and maintainable
+
+——————————————————————————————————————
