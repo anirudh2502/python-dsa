@@ -34,7 +34,7 @@ One important distinction: OULAD does not directly measure learning speed or act
 
 We should avoid treating the number of clicks as equivalent to learning.
 
-## 3. Introduce synthetic Learners and learner groups
+## 3. Introduce synthetic Learners 
 
 This is where we extend the system beyond the original OULAD dataset.
 
@@ -72,22 +72,8 @@ For example:
 
 Our existing ML models can process their features and predict likely outcomes.
 
-### Cluster of Learners?
 
-We can use clustering to automatically identify groups with similar learning characteristics.
-
-For example:
-
-* Group 1: Fast learners.
-* Group 2: Consistent learners.
-* Group 3: Learners requiring additional support.
-* Group 4: Inactive learners.
-
-The system discovers these groups based on behaviour rather than manually assigning Learners.
-
-One caution: synthetic Learners must have realistic characteristics and behaviour. Their generated profiles should be compatible with the feature distributions learned from OULAD. We should also distinguish synthetic simulation results from real-world model validation.
-
-## 4. Synthetic course configurations and adaptive learning guidance — Absolutely correct
+## 4. Synthetic course configurations and adaptive learning guidance 
 
 This is where the project becomes more than a predictive analytics application.
 
@@ -250,13 +236,11 @@ It has three distinct data/model layers:
 
 This separation is important because it allows us to demonstrate the system without confusing historical evidence with simulated results.
 
-### Where I suggest we go next
-
-Before writing code, I would like us to settle one fundamental design decision:
-
-**Should our adaptive learning engine operate at two levels?**
-
-1. **Learner level:** Recommend what an individual Learner should study next, revise or practise.
-2. **Group level:** Recommend how an instructor should adapt teaching materials or guidance for an entire group of Learners with similar learning patterns.
-
-With individual recommendations as the primary feature and group-level recommendations as an instructor feature.
+Next Steps:
+1. Get OULAD datasets
+2. Understand ML Basics of how to do Classification, Clustering, Recommendation
+3. Decide and Prepare Synthetic Data
+4. Develop Core Intelligence modules
+5. Develop Backend APIs and Front End UI
+6. Develop Basic workflow - Input, simulated output
+6. Develop Reports and Charts 
